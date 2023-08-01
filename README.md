@@ -1,41 +1,91 @@
-# MSR-WRO
+## Self-Driving Car with Object Detection using YOLOv5 Model
 
-**Design Process of Self-Driving Car with Object Detection using YOLOv5 Model**
+This repository contains the code and resources for a self-driving car equipped with an object detection system based on the YOLOv5 model. The car is specifically designed for the World Robot Olympiad (WRO) competition, offering autonomous navigation and obstacle detection capabilities.
 
-1. Introduction:
-   This report presents the design process of a self-driving car equipped with an object detection system based on the YOLOv5 model. The car is intended for the World Robot Olympiad (WRO) competition. It comprises a rear driving motor and a steering motor, both controlled by an L298N motor driver. Additionally, the robot incorporates three Time-of-Flight (ToF) sensors connected to an Arduino via an I2C hub. The Arduino communicates with a Raspberry Pi 4, which deploys the trained YOLOv5 model for object detection. The development process involved data labeling and processing using Roboflow, and model training performed on Google Colab.
+### Features
 
-2. Requirements Analysis:
-   The design process begins with a comprehensive analysis of the competition requirements and constraints. Size limitations, power source restrictions, weight restrictions, and specific rules set by the WRO competition are considered. These requirements guide the design and ensure compliance with the competition guidelines.
+- Utilizes a rear driving motor and a steering motor, controlled by an L298N motor driver.
+- Incorporates three Time-of-Flight (ToF) sensors for accurate distance measurement to nearby obstacles.
+- Deploys a Raspberry Pi 4 for real-time object detection using the trained YOLOv5 model.
+- Supports custom data labeling and processing using Roboflow.
+- Performs model training on Google Colab, ensuring optimized performance.
 
-3. Mechanical Design:
-   The mechanical design focuses on creating a sturdy and lightweight chassis that meets the size limitations specified by the competition. The chassis accommodates the rear driving motor and steering motor, ensuring proper alignment with the wheels. Ample space is provided to securely position the Arduino, Raspberry Pi, and other electronic components within the chassis.
+### Design Process
 
-4. Electrical Design:
-   The electrical design involves establishing a reliable power supply system. The rear driving motor and steering motor are controlled using an L298N motor driver, which regulates the voltage and current supplied to the motors. The motor driver connects to the Arduino, which receives signals and commands from the Raspberry Pi for precise motor control. Interface protocols facilitate communication between the Arduino and Raspberry Pi.
+1. **Requirements Analysis**: Thoroughly analyze the WRO competition requirements and constraints to guide the design and ensure compliance.
 
-   ![image](https://github.com/himazz/MSR-WRO/assets/25781254/d8f598c0-95a3-4491-8a60-ae132ad864fc)
+2. **Mechanical Design**: Create a sturdy and lightweight chassis that accommodates the motors and electronic components while adhering to size limitations.
 
-   ![image](https://github.com/himazz/MSR-WRO/assets/25781254/1d44e867-7d2c-43f1-878f-8080bab962dd)
+3. **Electrical Design**: Establish a reliable power supply system using the L298N motor driver for motor control and communication between the Arduino and Raspberry Pi.
+
+4. **Sensor Integration**: Integrate three ToF sensors connected to an Arduino via an I2C hub for accurate distance measurement and obstacle detection.
+
+5. **Object Detection Model Development**: Develop the object detection system using the YOLOv5 model and custom data labeling and processing using Roboflow.
+
+6. **Software Integration**: Deploy the trained YOLOv5 model on the Raspberry Pi 4 to enable real-time object detection.
+
+7. **Testing and Calibration**: Conduct extensive testing in various scenarios to evaluate the performance of the object detection system and calibrate the sensors and model.
+
+8. **Optimization and Refinement**: Fine-tune the YOLOv5 model, adjust sensor calibration parameters, and optimize power consumption to enhance the self-driving car's performance.
+
+
+9. **IMAGES AND VIDEOS**: The following section provides a reference for the PCB design and the provide useful videos 
+
+    
+**PCB Schematic** 
+
+![image](https://github.com/himazz/MSR-WRO/assets/25781254/e03d8b80-4e92-4ac4-a098-40ac8c97a423)
+
+**PCB Design** 
+
+![image](https://github.com/himazz/MSR-WRO/assets/25781254/415ef6d8-9f6c-4095-b0d4-03b348a5d1ae)
+
+
+**roboflow link** [https://app.roboflow.com/wro-pcq9c/boxfinder-gygic/deploy/1]
+
+**YouTube Videos** 
+1. object video for training [https://youtu.be/dY5cTE69LHM]
+2. progress video [https://youtu.be/xcinS8bJSI8] 
 
 
 
-6. Sensor Integration:
-   The self-driving car incorporates three ToF sensors placed in the front, right, and left directions. These sensors use infrared light to accurately measure the distance to nearby obstacles. Connected to an I2C hub, the sensors communicate with the Arduino simultaneously. The Arduino processes the sensor data, making informed decisions based on the detected obstacle distances. This integration enhances the car's autonomous navigation capabilities.
 
-   
 
-8. Object Detection Model Development:
-   The object detection system is developed using the YOLOv5 model. Custom data labeling and processing are performed using Roboflow, which provides efficient annotation tools. The labeled dataset is prepared for training, ensuring sufficient diversity and quantity of annotated images. The training process utilizes Google Colab, a powerful cloud-based platform, to train the YOLOv5 model on the labeled dataset. The model is optimized for real-time object detection on the Raspberry Pi 4.
 
-9. Software Integration:
-   The trained YOLOv5 model is deployed on the Raspberry Pi 4, which is responsible for object detection. The Raspberry Pi processes the camera feed in real-time, identifying and localizing objects of interest within the car's surroundings. The detected objects are classified into predefined classes, enabling the self-driving car to make informed decisions based on the detected obstacles.
+### Usage
 
-10. Testing and Calibration:
-   Extensive testing and calibration are conducted to evaluate the performance of the self-driving car's object detection system. The car is tested in various scenarios resembling the competition environment, including different lighting conditions and obstacle configurations. Calibration ensures accurate distance measurements from the ToF sensors and precise object detection by the YOLOv5 model, enhancing the reliability and effectiveness of the self-driving car.
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-username/self-driving-car.git
+   ```
 
-11. Optimization and Refinement:
-   Based on the testing results, optimization and refinement are performed to enhance the performance of the self-driving car. This may involve fine-tuning the YOLOv5 model, adjusting sensor calibration parameters, optimizing power consumption, or improving the overall accuracy and speed of object detection. Iterative cycles of testing, analysis, and optimization are conducted until the self-driving car meets the desired performance standards.
+2. Install the required dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-12. Conclusion:
-    The design process of the self-driving car with an object detection system based on the YOLOv5 model demonstrates the integration of mechanical, electrical, and software components. By combining the rear driving motor, steering motor, ToF sensors, Arduino, Raspberry Pi, and the YOLOv5 model, an autonomous vehicle capable of real-time object detection is developed. Thorough testing, calibration, and optimization contribute to achieving a high-performance self-driving car that can navigate obstacles effectively and meet the requirements of the WRO competition.
+3. Prepare the dataset and perform data labeling using Roboflow.
+
+4. Train the YOLOv5 model on Google Colab using the provided notebook.
+
+5. Transfer the trained model to the Raspberry Pi 4.
+
+6. Run the self-driving car code on the Raspberry Pi 4.
+
+### Contributing
+
+Contributions to this project are welcome. Feel free to submit issues, feature requests, and pull requests.
+
+### License
+
+This project is licensed under the [MIT License](LICENSE).
+
+### Acknowledgments
+
+We would like to acknowledge the contributions of the open-source community and the developers of YOLOv5, Roboflow, and Google Colab for their valuable tools and resources.
+
+### References
+
+- YOLOv5: [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
+- Roboflow: [https://roboflow.com](https://roboflow.com)
+- Google Colab: [https://colab.research.google.com](https://colab.research.google.com)
